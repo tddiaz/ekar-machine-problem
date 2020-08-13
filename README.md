@@ -63,13 +63,11 @@ make stop
         "consumers": [
             {
                 "id": "4f6712ca-715b-40e2-9105-cf944c507023",
-                "requestId": "1aa75de9-2c80-4d99-9d9e-e1927faf3766",
                 "updatedCounterValue": 51,
                 "executed": true
             },
             {
                 "id": "577a536b-cd8e-4b4c-bd97-c2eee5b7827a",
-                "requestId": "1aa75de9-2c80-4d99-9d9e-e1927faf3766",
                 "updatedCounterValue": 50,
                 "executed": true
             }
@@ -77,13 +75,11 @@ make stop
         "producers": [
             {
                 "id": "76529f32-973a-46f0-b31f-16a88666d533",
-                "requestId": "1aa75de9-2c80-4d99-9d9e-e1927faf3766",
                 "updatedCounterValue": 52,
                 "executed": true
             },
             {
                 "id": "d9216b62-8a65-47e9-a5bb-70db82c6c3b1",
-                "requestId": "1aa75de9-2c80-4d99-9d9e-e1927faf3766",
                 "updatedCounterValue": 51,
                 "executed": true
             }
