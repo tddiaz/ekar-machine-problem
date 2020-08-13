@@ -1,8 +1,8 @@
 package com.github.tddiaz.ekarmachineproblem.controllers;
 
-import com.github.tddiaz.ekarmachineproblem.controllers.dtos.IncreaseThreadsRequest;
-import com.github.tddiaz.ekarmachineproblem.controllers.dtos.UpdateCounterValueRequest;
-import com.github.tddiaz.ekarmachineproblem.models.RequestLog;
+import com.github.tddiaz.ekarmachineproblem.controllers.dtos.request.IncreaseThreadsRequest;
+import com.github.tddiaz.ekarmachineproblem.controllers.dtos.request.UpdateCounterValueRequest;
+import com.github.tddiaz.ekarmachineproblem.controllers.dtos.response.GetRequestLogResponse;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -43,7 +43,7 @@ class AppControllerTest {
         // verify request log
         var requestLog = given().header("Content-Type", "application/json")
                         .when().get("/requestLogs/{requestId}", requestId)
-                        .then().statusCode(200).extract().as(RequestLog.class);
+                        .then().statusCode(200).extract().as(GetRequestLogResponse.class);
 
         assertThat(requestLog).isNotNull();
         assertThat(requestLog.getConsumerCount()).isEqualTo(5);
@@ -73,5 +73,27 @@ class AppControllerTest {
                 .when().get("/counter")
                 .then().extract().path("value");
         assertThat(counter).isEqualTo(51);
+    }
+
+    @Test
+    void givenInvalidCounterValue_whenUpdateCounter_shouldReturnBadRequest() {
+
+        {
+            var counterUpdateRequest = new UpdateCounterValueRequest();
+            counterUpdateRequest.setValue(-1);
+
+            given().header("Content-Type", "application/json").body(counterUpdateRequest)
+                    .when().put("/updateCounterValue")
+                    .then().statusCode(400).body("message", notNullValue());
+        }
+
+        {
+            var counterUpdateRequest = new UpdateCounterValueRequest();
+            counterUpdateRequest.setValue(101);
+
+            given().header("Content-Type", "application/json").body(counterUpdateRequest)
+                    .when().put("/updateCounterValue")
+                    .then().statusCode(400).body("message", notNullValue());
+        }
     }
 }

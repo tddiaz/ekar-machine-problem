@@ -1,7 +1,7 @@
 package com.github.tddiaz.ekarmachineproblem.services;
 
-import com.github.tddiaz.ekarmachineproblem.controllers.dtos.IncreaseThreadsRequest;
-import com.github.tddiaz.ekarmachineproblem.controllers.dtos.UpdateCounterValueRequest;
+import com.github.tddiaz.ekarmachineproblem.controllers.dtos.request.IncreaseThreadsRequest;
+import com.github.tddiaz.ekarmachineproblem.controllers.dtos.request.UpdateCounterValueRequest;
 import com.github.tddiaz.ekarmachineproblem.models.Consumer;
 import com.github.tddiaz.ekarmachineproblem.models.Producer;
 import com.github.tddiaz.ekarmachineproblem.models.RequestLog;

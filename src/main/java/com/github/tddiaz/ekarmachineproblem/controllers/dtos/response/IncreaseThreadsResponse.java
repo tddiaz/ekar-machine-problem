@@ -1,4 +1,4 @@
-package com.github.tddiaz.ekarmachineproblem.controllers.dtos;
+package com.github.tddiaz.ekarmachineproblem.controllers.dtos.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -42,6 +42,9 @@ public class Counter {
     }
 
     public void setValue(Integer value) {
+        if (value < minValue || value > maxValue) {
+            throw new InvalidCounterValueException(String.format("counter value cannot be less than %d or more than %d", minValue, maxValue));
+        }
         this.value = value;
     }
 

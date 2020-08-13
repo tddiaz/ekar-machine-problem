@@ -98,7 +98,7 @@ make stop
         "value": 100
     }
 ##### Sample Request
-    $ curl 'http://localhost:8080/updateCounterValue' -i -X POST \
+    $ curl 'http://localhost:8080/updateCounterValue' -i -X PUT \
         -H 'Content-Type: application/json' \
         -d '{"value": 100}' 
 ##### Example Response
