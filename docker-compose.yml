@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+
+  mysql-db:
+    image: mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_DATABASE=ekar
+
+  ekar-machine-problem:
+    image: ekar-machine-problem:latest
+    restart: on-failure
+    depends_on:
+      - mysql-db
+    ports:
+      - 8080:8080
+    environment:
+      - DB_HOST=mysql-db

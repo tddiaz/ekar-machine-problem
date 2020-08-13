@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    username: root
+    password: pass
+    url: jdbc:mysql://${db.host:localhost}:3306/ekar?useSSL=false&allowPublicKeyRetrieval=true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+counter:
+  initialValue: 50
+  maxValue: 100
+  minValue: 0
